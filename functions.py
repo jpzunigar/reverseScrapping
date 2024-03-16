@@ -35,7 +35,7 @@ def get_info_from_top_position(pages):
 
         driver = get_driver()
         for i in range(pages):
-            driver.get(f"https://revert.finance/#/top-positions?page={i+1}")
+            driver.get(f"https://www.wikipedia.org/")
             time.sleep(4.5)  # Let the page render
 
             soup = bs(driver.page_source, 'html.parser')
