@@ -11,7 +11,7 @@ import time
 
 
 def get_info_from_top_position(pages):
-    with st.echo():
+    if pages > 0:
         from selenium import webdriver
         from selenium.webdriver.chrome.options import Options
         from selenium.webdriver.chrome.service import Service
