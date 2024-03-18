@@ -60,4 +60,6 @@ def get_info_from_top_position(pages):
                 # Remove commas and dollar signs, then convert to numeric
                 df_final_page[col] = pd.to_numeric(df_final_page[col].replace('[\$,%]', '', regex=True), errors='coerce')
             list_df_all.append(df_final_page)
-        return pd.concat(list_df_all).reset_index(inplace=True)
+        df_final = pd.concat(list_df_all)
+        df_final = df_final.reset_index()
+        return df_final
