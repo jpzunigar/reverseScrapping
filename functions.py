@@ -25,7 +25,7 @@ def get_info_from_top_position(pages, red = 'All networks'):
         def get_driver():
             return webdriver.Chrome(
             service=Service(
-                #ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
+                ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
             ),
             options=options,
         ) 
