@@ -20,6 +20,7 @@ ReverseScrapping is an innovative Python tool designed for advanced web scraping
 git clone https://github.com/jpzunigar/reverseScrapping.git
 cd reverseScrapping
 pip install -r requirements.txt
+```
 
 ## Usage
 
