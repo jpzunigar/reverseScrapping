@@ -1,7 +1,7 @@
 # ReverseScrapping
 
 ## Introduction
-ReverseScrapping is an innovative Python tool designed for advanced web scraping. This project automates the process of data extraction from websites, focusing on dynamic content that traditional scraping tools may not handle effectively.
+ReverseScrapping is a Python tool designed for web scraping, specifically targeting the dynamic content of rever.finance. It automates the extraction and analysis of data, focusing on calculating the top 10 operations to provide insights into financial transactions and trends.
 
 ## Features
 - Automated web interactions using Selenium
@@ -10,7 +10,7 @@ ReverseScrapping is an innovative Python tool designed for advanced web scraping
 - Efficient handling of dynamic content and JavaScript-heavy pages
 
 ## Technology Stack
-- Python 3.x: Primary programming language
+- Python 3.10: Primary programming language
 - Selenium: Web automation and scraping
 - BeautifulSoup (optional): Parsing HTML and XML documents
 
@@ -22,6 +22,6 @@ cd reverseScrapping
 pip install -r requirements.txt
 ```
 
-## Usage
+
 
 
