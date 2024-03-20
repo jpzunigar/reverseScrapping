@@ -49,7 +49,7 @@ def getting_elements(pages, red, driver):
     return pd.concat(list_df_all).reset_index()
 
 
-
+@st.cache_data
 def get_info_from_top_position(pages, red):    
     
     if pages > 0:

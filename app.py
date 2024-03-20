@@ -4,6 +4,9 @@ from streamlit_option_menu import option_menu
 from functions import get_info_from_top_position
 from functions import count_values, create_count_plot
 
+#st.set_page_config(layout="wide")
+if 'RetrievedData' not in st.session_state:
+    st.session_state.RetrievedData = None
 
 
 with st.sidebar:
@@ -22,24 +25,27 @@ with st.sidebar:
         }
 
     )
-    option_red = st.selectbox(
-    'Filtre por red',
-    ('All networks', 'Ethereum', 'Polygon','Arbitrum','Optimism','BNB','EVMOS','Base'))
 if selected == "Top Positions":
     st.header('Revert.Finance Scrapper App')
-    st.subheader("Esta hoja resume la información obtenida de top positions de Revert.Finance")
-    num_pages = st.number_input('Inserte el numero de paginas que desea scrapear', min_value=1)
-    if st.button('Iniciar Scraping', use_container_width=True):
+    st.markdown("Esta hoja resume la información obtenida de top positions de Revert.Finance.Muestra el top 10 operaciones más realizadas")
+    form = st.form(key='my_form')
+    num_pages = form.number_input('Inserte el numero de paginas que desea scrapear', min_value=1)
+    option_red = form.selectbox(
+    'Filtre por red',
+    ('All networks', 'Ethereum', 'Polygon','Arbitrum','Optimism','BNB','EVMOS','Base'))
+    if form.form_submit_button('Iniciar Scraping', use_container_width=True):
         with st.spinner('Recolectando información...'):
-            df = get_info_from_top_position(num_pages, red = option_red)
+            st.session_state.RetrievedData = get_info_from_top_position(num_pages, red = option_red)
+
+        if st.session_state.RetrievedData is not None:
             with st.expander('Ver datos'):
-                st.write(df)
+                st.write(st.session_state.RetrievedData)
             col1, col2 = st.columns(2)
-            df_count = count_values(df)
+            df_count = count_values(st.session_state.RetrievedData)
             with col1:
                 create_count_plot(df_count)
             with col2:
-                st.dataframe(df_count)
+                st.dataframe(df_count,use_container_width=True)
             
 
 
