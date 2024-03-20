@@ -46,6 +46,15 @@ if selected == "Top Positions":
                 create_count_plot(df_count)
             with col2:
                 st.dataframe(df_count,use_container_width=True)
+    if st.session_state.RetrievedData is not None:
+        with st.expander('Ver datos'):
+            st.write(st.session_state.RetrievedData)
+        col1, col2 = st.columns(2)
+        df_count = count_values(st.session_state.RetrievedData)
+        with col1:
+            create_count_plot(df_count)
+        with col2:
+            st.dataframe(df_count,use_container_width=True)
             
 
 
